@@ -35,11 +35,21 @@ Please enter your user email: your-id@your-email-host.com
 
 ### 4. 실행 결과 확인
 
+키를 요청하시면 아래와 같이 키가 메일로 발송됩니다. 
+
+<img src="./images/key_request_result.png" width=75% align="center">
+
+
 이메일을 못 받으신 경우 'log/' 폴더에 생기는 로그를 확인해주시고 스팸함도 확인해주세요.
 
 또, 참여하신 *진행중* 태스크가 없으신 경우에도 키가 발송되지 않습니다.
 
-키를 받으시려는 태스크 페이지에서 `대회 참여하기`를 꼭 눌러주세요!
+키를 받으시려는 태스크 페이지에서 아래 이미지에서 보이는 `대회 참여하기`를 꼭 눌러주세요!
+
+<img src="./images/participate_button.png" width=75% align="center">
+
+> UNITY ML-AGENT 태스크 예시
+
 
 ## 제출 가이드
 
@@ -104,7 +114,7 @@ aifactory-submit \
 
 제출 횟수 제한은 채점 '성공'을 기준으로 합니다.
 
-<img src="./images/grading_result.png" width=50% align="center">
+<img src="./images/grading_result.png" width=75% align="center">
 
 
 ### 6. 기타 사용 가능한 모든 옵션
