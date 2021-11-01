@@ -7,3 +7,4 @@ if __name__ == "__main__":
         for _ in range(6):
             shuffle(number_set)
             file.write(str(number_set.pop())+"\n")
+
