@@ -4,7 +4,7 @@ Tutorial for `AI Factory` python API
 ## 키 요청 가이드 
 How-to-request-your-key
 
-1. aifactory-beta 설치
+### 1. aifactory-beta 설치
 
 아래 명령어로 `aifactory-beta` 패키지를 설치합니다.
 잦은 업데이트가 예상되오니 오류가 발생할 경우에는 업데이트를 시도해봐주세요.
@@ -14,7 +14,7 @@ pip install aifactory-beta
 pip install aifactory-beta -u
 ```
 
-2. `aifactory-request-key` 명령어 실행
+### 2. `aifactory-request-key` 명령어 실행
 
 아래 명령어를 실행해주세요.
 
@@ -22,7 +22,7 @@ pip install aifactory-beta -u
 aifactory-request-key                
 ```
 
-3. 이메일 주소 입력
+### 3. 이메일 주소 입력
 
 명령어를 입력하면 이메일 주소를 요구합니다.
 인공지능 팩토리 플랫폼을 이용할 때 사용하시는 아이디를 입력해주세요.
@@ -33,7 +33,7 @@ aifactory-request-key
 Please enter your user email: your-id@your-email-host.com
 ```
 
-4. 오류 확인
+### 4. 실행 결과 확인
 
 이메일을 못 받으신 경우 'log/' 폴더에 생기는 로그를 확인해주시고 스팸함도 확인해주세요.
 
@@ -43,9 +43,71 @@ Please enter your user email: your-id@your-email-host.com
 
 ## 제출 가이드
 
-1. 키 저장
+### 1. 키 저장
 
 위의 키 요청 가이드를 참고해 먼저 키를 받아주세요.
 
 키를 받으셨으면 `--key` 옵션을 이용해 키를 직접 입력하시거나 `sample_data/mykey.afk` 등의 텍스트 파일을 만들어 가장 윗줄에 키를 넣어놓고 사용하실 수 있습니다.
+
+### 2. 정답 파일 확장자 확인
+
+태스크마다 제출할 수 있는 파일 확장자 제한이 있습니다. 태스크페이지에서 확인 해주세요.
+
+제출해야 하는 파일이 여러 개인 경우에는 제출할 파일을 하나의 폴더에 담고 그 폴더를 압축해서 제출해주세요.
+
+예시) 아래 예시의 경우에는 `user_code/` 폴더를 압축해서 전송해주세요.
+
+```angular2html
+user_code/
+    ├── my_code.py
+    ├── requirements.txt
+    └── my_model.h5
+```
+
+## 3. 정답 파일 제출
+
+아래 명령어와 옵션을 이용해 키와 파일을 전송하실 수 있습니다.
+
+- 키를 파일에 넣어서 이용하는 예시
+```
+aifactory-submit  \
+    --key-path sample_data/my_key.afk \
+    --file sample_data/answer.csv
+```
+
+- 키를 직접 입력하는 예시
+```
+aifactory-submit \
+  --key 1234567somerandomekey7654321 \
+  --file sample_data/answer.csv
+```
+
+
+### 4. 실행 결과 확인
+
+실행 결과는 'log/' 폴더에 생기는 로그를 확인해주세요.
+
+성공했을 경우에는 
+
+제출에는 횟수 제한이 걸려있습니다 태스크 페이지나 대회 주최 기관의 공지사항을 확인해주세요.
+
+제출에 실패하셨을 경우에는 실패하셨을 때 생성된 로그를 첨부해서 대회 운영진에게 문의해주세요.
+
+### 5. 기타 사용 가능한 모든 옵션
+
+```
+aifactory-submit
+  --key-path, -p  sample_data/my_key.afk
+  --key, -k  1234567somerandomekey7654321
+  --file, -f sample_data/answer.csv
+  --log-dir ./log # 로그를 저장하는 디렉토리를 지정합니다.
+  # --help, -h # 사용법을 확인합니다.
+```
+
+- 아래는 개발자 컨트리뷰터들을 위한 옵션입니다.
+```
+# options for contributors
+  --debug, -d  False # 디버그 모드에서 실행합니다.
+  --submit-url  http://submission.server.address # 제출 서버를 지정합니다.
+```
 
