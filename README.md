@@ -19,7 +19,11 @@ pip install aifactory-beta -u
 아래 명령어를 실행해주세요.
 
 ```
-aifactory-request-key                
+aifactory-request-key
+
+# or 
+
+python -m aifactory.Executables.request_key
 ```
 
 ### 3. 이메일 주소 입력
@@ -83,11 +87,23 @@ user_code/
 aifactory-submit  \
     --key-path sample_data/my_key.afk \
     --file sample_data/answer.csv
+    
+# or
+
+python -m aifactory.Executables.submit \
+    --key-path sample_data/my_key.afk \
+    --file sample_data/answer.csv
 ```
 
 - 키를 직접 입력하는 예시
 ```
 aifactory-submit \
+  --key 1234567somerandomekey7654321 \
+  --file sample_data/answer.csv
+  
+# or
+
+python -m aifactory.Executables.submit \
   --key 1234567somerandomekey7654321 \
   --file sample_data/answer.csv
 ```
@@ -139,3 +155,4 @@ aifactory-submit
 ### 7. 주의사항
 
 - 제출한 파일은 최대 2 개 까지 저장됩니다. 채점이 오래 걸리는 경우에 채점이 끝나기 전에 추가로 제출하시면 그 이전에 제출하신 결과물이 채점되지 않을 수 있습니다.
+- 실행 명령어가 작동하지 않는 경우에는 `python -m aifactory.Executables.(request_key/submit)` 등과 같이 모듈을 직접 실행시키시면 됩니다.
